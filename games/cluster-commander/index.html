@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cluster Commander - Games4Stats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../games/variance-voyager/styles.css">
+    <style>
+        .gradient-orb.orb-1 {
+            background: rgba(239, 68, 68, 0.4);
+        }
+
+        /* Red */
+        .gradient-orb.orb-2 {
+            background: rgba(34, 197, 94, 0.4);
+        }
+
+        /* Green */
+        .meter-fill {
+            background: #f59e0b;
+        }
+
+        /* Amber theme */
+        .canvas-container {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .group-legend {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="glass-card hero-card">
+            <h1 class="game-title">Cluster Commander</h1>
+            <p class="game-subtitle">The One-Way ANOVA Challenge</p>
+
+            <div class="intro-text">
+                <p>When you have 3 or more groups, a T-Test isn't enough.</p>
+                <p class="hint-text">Master the <strong>F-Ratio</strong> by battling "Between-Group Variety" against
+                    "Within-Group Noise".</p>
+            </div>
+
+            <button id="start-btn" class="primary-btn" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <span>Launch Mission</span>
+            </button>
+            <br>
+            <a href="../../index.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem;">←
+                Back to Hub</a>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <header class="game-header">
+            <div class="level-indicator glass-pill">
+                <span class="level-label">Level</span>
+                <span id="level-number" class="level-num">1</span>
+                <span id="level-name" class="level-name">The Spread</span>
+            </div>
+
+            <div class="score-container glass-pill">
+                <span class="score-label">F-Statistic</span>
+                <span id="f-stat-display">0.00</span>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div class="canvas-container glass-card">
+                <canvas id="game-canvas"></canvas>
+
+                <div class="overlay-ui" style="position: absolute; top: 20px; right: 20px; text-align: right;">
+                    <div style="font-weight: bold; color: #f59e0b; font-size: 1.2rem;">p = <span
+                            id="p-value">1.00</span></div>
+                    <div class="group-legend">
+                        <span><span class="legend-dot" style="background: #ef4444"></span>A</span>
+                        <span><span class="legend-dot" style="background: #22c55e"></span>B</span>
+                        <span><span class="legend-dot" style="background: #3b82f6"></span>C</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="stats-panel">
+                <div class="stat-card glass-card">
+                    <h3>Control Panel</h3>
+                    <p id="level-instruction" style="margin-bottom: 1rem; font-size: 0.9rem; color: #cbd5e1;">Separate
+                        the groups!</p>
+
+                    <div class="slider-group" id="slider-between">
+                        <label>Spread (Between-Groups)</label>
+                        <input type="range" id="input-between" min="0" max="100" value="0">
+                    </div>
+
+                    <div class="slider-group" id="slider-within">
+                        <label>Precision (Within-Groups)</label>
+                        <input type="range" id="input-within" min="10" max="100" value="50" style="direction: rtl">
+                        <!-- RTL: Right is "High Precision" (Low Var) -->
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card objective-card">
+                    <h3>F-Ratio Meter</h3>
+                    <div class="variance-meter">
+                        <div class="meter-track">
+                            <!-- Green zone marker -->
+                            <div
+                                style="position: absolute; left: 60%; width: 40%; height: 100%; background: rgba(34, 197, 94, 0.1); border-left: 1px dashed #22c55e;">
+                            </div>
+                            <div id="f-fill" class="meter-fill" style="width: 0%; background: #f59e0b;"></div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">F = Variance Between / Variance Within
+                    </p>
+                </div>
+
+                <button id="confirm-btn" class="primary-btn" disabled
+                    style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                    <span>Confirm Significance</span>
+                </button>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Complete Screen -->
+    <div id="complete-screen" class="screen">
+        <div class="glass-card complete-card">
+            <h2>Analysis Complete! 📊</h2>
+            <div class="insight-box">
+                <h4>📚 Insight</h4>
+                <p id="insight-text">By maximizing the difference BETWEEN groups while minimizing the noise WITHIN
+                    groups, you created a massive F-Ratio!</p>
+            </div>
+            <button id="next-level-btn" class="primary-btn">
+                <span>Next Mission</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

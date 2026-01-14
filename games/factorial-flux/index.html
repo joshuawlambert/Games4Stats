@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Flux - Games4Stats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../games/variance-voyager/styles.css">
+    <style>
+        .gradient-orb.orb-1 {
+            background: rgba(168, 85, 247, 0.4);
+        }
+
+        /* Purple */
+        .gradient-orb.orb-2 {
+            background: rgba(236, 72, 153, 0.4);
+        }
+
+        /* Pink */
+        .meter-fill {
+            background: #d946ef;
+        }
+
+        .canvas-container {
+            background: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="glass-card hero-card">
+            <h1 class="game-title">Factorial Flux</h1>
+            <p class="game-subtitle">The Two-Way ANOVA Interaction Lab</p>
+
+            <div class="intro-text">
+                <p>Real world data is complex. Variables interact with each other.</p>
+                <p class="hint-text">Manipulate two factors simultaneously to discover <strong>Main Effects</strong> and
+                    <strong>Interactions</strong>.</p>
+            </div>
+
+            <button id="start-btn" class="primary-btn" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
+                <span>Enter The Matrix</span>
+            </button>
+            <br>
+            <a href="../../index.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem;">←
+                Back to Hub</a>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <header class="game-header">
+            <div class="level-indicator glass-pill">
+                <span class="level-label">Level</span>
+                <span id="level-number" class="level-num">1</span>
+                <span id="level-name" class="level-name">Parallel Worlds</span>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div class="canvas-container glass-card">
+                <canvas id="game-canvas"></canvas>
+
+                <div class="overlay-ui"
+                    style="position: absolute; top: 20px; right: 20px; text-align: right; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px;">
+                    <div style="font-size: 0.8rem; color: #a855f7;">Factor A (Main Effect): <span id="stat-a"
+                            style="color:white; font-weight:bold">0.00</span></div>
+                    <div style="font-size: 0.8rem; color: #ec4899;">Factor B (Main Effect): <span id="stat-b"
+                            style="color:white; font-weight:bold">0.00</span></div>
+                    <div style="font-size: 0.8rem; color: #22c55e;">Interaction (AxB): <span id="stat-int"
+                            style="color:white; font-weight:bold">0.00</span></div>
+                </div>
+            </div>
+
+            <aside class="stats-panel">
+                <div class="stat-card glass-card">
+                    <h3>Flux Controls</h3>
+                    <p id="level-task" style="margin-bottom: 1rem; font-size: 0.9rem; color: #cbd5e1;">Make lines
+                        Parallel but Separated.</p>
+
+                    <div class="slider-group">
+                        <label style="color: #a855f7">Factor A (Slope)</label>
+                        <input type="range" id="input-a" min="-50" max="50" value="0">
+                    </div>
+
+                    <div class="slider-group">
+                        <label style="color: #ec4899">Factor B (Separation)</label>
+                        <input type="range" id="input-b" min="0" max="100" value="20">
+                    </div>
+
+                    <div class="slider-group">
+                        <label style="color: #22c55e">Interaction (Cross)</label>
+                        <input type="range" id="input-int" min="-50" max="50" value="0">
+                    </div>
+                </div>
+
+                <button id="confirm-btn" class="primary-btn" disabled
+                    style="background: linear-gradient(135deg, #a855f7, #ec4899);">
+                    <span>Confirm Pattern</span>
+                </button>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Complete Screen -->
+    <div id="complete-screen" class="screen">
+        <div class="glass-card complete-card">
+            <h2>Pattern Matched! 🧩</h2>
+            <div class="insight-box">
+                <h4>📚 Concept Unlocked</h4>
+                <p id="insight-text">Parallel lines mean NO interaction. The effect of Factor A is the same regardless
+                    of Factor B.</p>
+            </div>
+            <button id="next-level-btn" class="primary-btn">
+                <span>Next Dimension</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

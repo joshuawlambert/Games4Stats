@@ -21,7 +21,7 @@ body {
     font-family: 'Outfit', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: 
+    background-image:
         radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 40%);
 }
@@ -93,9 +93,30 @@ body {
     justify-content: center;
 }
 
-.pca-icon { color: #ec4899; background: rgba(236, 72, 153, 0.1); }
-.ttest-icon { color: #6366f1; background: rgba(99, 102, 241, 0.1); }
-.paired-icon { color: #14b8a6; background: rgba(20, 184, 166, 0.1); }
+.pca-icon {
+    color: #ec4899;
+    background: rgba(236, 72, 153, 0.1);
+}
+
+.ttest-icon {
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.paired-icon {
+    color: #14b8a6;
+    background: rgba(20, 184, 166, 0.1);
+}
+
+.anova-icon {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.inter-icon {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+}
 
 .card-title {
     font-size: 1.75rem;
@@ -117,7 +138,7 @@ body {
     font-size: 0.85rem;
     font-weight: 500;
     margin-bottom: 1rem;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .why-useful {
@@ -150,15 +171,26 @@ body {
 .btn-primary {
     background: linear-gradient(135deg, var(--primary), #818cf8);
 }
+
 .btn-secondary {
     background: linear-gradient(135deg, var(--secondary), #f472b6);
 }
+
 .btn-accent {
     background: linear-gradient(135deg, var(--accent), #2dd4bf);
 }
+
+.btn-amber {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.btn-purple {
+    background: linear-gradient(135deg, #a855f7, #c026d3);
+}
+
 .btn-disabled {
-    background: rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
     cursor: not-allowed;
 }
 
@@ -179,8 +211,17 @@ body {
     text-transform: uppercase;
 }
 
-.status-live { background: rgba(20, 184, 166, 0.2); color: #2dd4bf; border: 1px solid rgba(20, 184, 166, 0.4); }
-.status-soon { background: rgba(255, 255, 255, 0.1); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); }
+.status-live {
+    background: rgba(20, 184, 166, 0.2);
+    color: #2dd4bf;
+    border: 1px solid rgba(20, 184, 166, 0.4);
+}
+
+.status-soon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 footer {
     text-align: center;
@@ -190,6 +231,11 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .games-grid { padding: 1rem; }
-    .logo-display { font-size: 2.5rem; }
+    .games-grid {
+        padding: 1rem;
+    }
+
+    .logo-display {
+        font-size: 2.5rem;
+    }
 }
