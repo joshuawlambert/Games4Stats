@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror Match - Games4Stats</title>
+    <meta name="description"
+        content="Master the Paired Samples T-Test by discovering the power of within-subject analysis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../games/variance-voyager/styles.css">
+    <style>
+        /* Override for visual difference */
+        .gradient-orb.orb-1 {
+            background: rgba(20, 184, 166, 0.4);
+        }
+
+        .gradient-orb.orb-2 {
+            background: rgba(45, 212, 191, 0.4);
+        }
+
+        .meter-fill {
+            background: #14b8a6;
+        }
+
+        /* Teal theme */
+
+        /* Canvas background override */
+        .canvas-container {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="glass-card hero-card">
+            <h1 class="game-title">Mirror Match</h1>
+            <p class="game-subtitle">The Paired Samples T-Test Challenge</p>
+
+            <div class="intro-text">
+                <p>Sometimes, the secret isn't in the groups, but in the <strong>links</strong> between them.</p>
+                <p class="hint-text">Control the <strong>correlation</strong> between Before & After measurements to
+                    reveal hidden effects.</p>
+            </div>
+
+            <button id="start-btn" class="primary-btn" style="background: linear-gradient(135deg, #14b8a6, #2dd4bf);">
+                <span>Start Experiment</span>
+            </button>
+            <br>
+            <a href="../../index.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem;">←
+                Back to Hub</a>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <header class="game-header">
+            <div class="level-indicator glass-pill">
+                <span class="level-label">Level</span>
+                <span id="level-number" class="level-num">1</span>
+                <span id="level-name" class="level-name">The Messy Data</span>
+            </div>
+
+            <div class="score-container glass-pill">
+                <span class="score-label">Statistic</span>
+                <span id="stat-type">t(paired)</span>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div class="canvas-container glass-card">
+                <canvas id="game-canvas"></canvas>
+
+                <!-- Floating Info -->
+                <div class="overlay-ui" style="position: absolute; top: 20px; left: 20px;">
+                    <div style="font-size: 0.8rem; opacity: 0.7;">Compare:</div>
+                    <div style="font-weight: bold; color: #14b8a6;">Independent T-Test: <span id="indep-p"
+                            style="color:white">p=0.45</span></div>
+                    <div style="font-weight: bold; color: #22c55e;">Paired T-Test: <span id="paired-p"
+                            style="color:white">p=0.45</span></div>
+                </div>
+
+                <div class="overlay-ui" id="success-msg"
+                    style="position: absolute; bottom: 20px; width: 100%; text-align: center; opacity: 0; transition: opacity 0.3s;">
+                    <span
+                        style="background: rgba(34, 197, 94, 0.2); border: 1px solid #22c55e; color: #22c55e; padding: 5px 15px; border-radius: 20px; font-weight: bold;">SIGNIFICANT!</span>
+                </div>
+            </div>
+
+            <aside class="stats-panel">
+                <div class="stat-card glass-card">
+                    <h3>Parameters</h3>
+                    <p id="level-task" style="margin-bottom: 1rem; font-size: 0.9rem; color: #cbd5e1;">Increase
+                        correlation to reduce error.</p>
+
+                    <div class="slider-group" id="slider-corr">
+                        <label>Correlation (r)</label>
+                        <input type="range" id="input-corr" min="0" max="95" value="0">
+                    </div>
+                </div>
+
+                <div class="stat-card glass-card objective-card">
+                    <h3>Significance Meter</h3>
+                    <div class="variance-meter">
+                        <div class="meter-track">
+                            <!-- Green zone marker -->
+                            <div
+                                style="position: absolute; left: 70%; width: 30%; height: 100%; background: rgba(34, 197, 94, 0.1); border-left: 1px dashed #22c55e;">
+                            </div>
+                            <div id="sig-fill" class="meter-fill" style="width: 0%; background: #14b8a6;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="confirm-btn" class="primary-btn" disabled
+                    style="background: linear-gradient(135deg, #14b8a6, #2dd4bf);">
+                    <span>Confirm Result</span>
+                </button>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Complete Screen -->
+    <div id="complete-screen" class="screen">
+        <div class="glass-card complete-card">
+            <h2>Discovery Made! 🔍</h2>
+            <div class="insight-box">
+                <h4>📚 Why it worked</h4>
+                <p id="insight-text">By accounting for the correlation between subjects, we removed the individual noise
+                    and isolated the true treatment effect.</p>
+            </div>
+            <button id="next-level-btn" class="primary-btn">
+                <span>Next Level</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
