@@ -238,10 +238,8 @@ function loadLevel(index) {
     elements.scenarioText.textContent = levels[index].description;
     
     // Reset decision buttons
-    elements.btnIndependent.style.opacity = '1';
-    elements.btnAssociated.style.opacity = '1';
-    elements.btnIndependent.style.transform = 'scale(1)';
-    elements.btnAssociated.style.transform = 'scale(1)';
+    elements.btnIndependent.classList.remove('selected');
+    elements.btnAssociated.classList.remove('selected');
     
     elements.confirmBtn.disabled = true;
     
@@ -251,17 +249,14 @@ function loadLevel(index) {
 function handleDecision(decision) {
     state.selectedDecision = decision;
     
-    // Visual feedback
+    // Visual feedback using CSS classes
+    elements.btnIndependent.classList.remove('selected');
+    elements.btnAssociated.classList.remove('selected');
+    
     if (decision === 'independent') {
-        elements.btnIndependent.style.transform = 'scale(1.05)';
-        elements.btnAssociated.style.transform = 'scale(1)';
-        elements.btnIndependent.style.opacity = '1';
-        elements.btnAssociated.style.opacity = '0.5';
+        elements.btnIndependent.classList.add('selected');
     } else {
-        elements.btnAssociated.style.transform = 'scale(1.05)';
-        elements.btnIndependent.style.transform = 'scale(1)';
-        elements.btnAssociated.style.opacity = '1';
-        elements.btnIndependent.style.opacity = '0.5';
+        elements.btnAssociated.classList.add('selected');
     }
     
     elements.confirmBtn.disabled = false;
