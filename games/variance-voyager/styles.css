@@ -876,8 +876,12 @@ body {
 }
 
 @media (max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+
     .game-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .feature-grid {
@@ -887,6 +891,7 @@ body {
 
     .stats-panel {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
 
     .stat-card:nth-child(3),
@@ -896,6 +901,53 @@ body {
 
     .game-header {
         flex-direction: column;
-        gap: var(--spacing-md);
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm);
+    }
+
+    .level-indicator {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+
+    .hero-card {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-sm);
+    }
+
+    .screen {
+        padding: var(--spacing-sm);
+    }
+
+    .canvas-container {
+        padding: var(--spacing-sm);
+    }
+
+    .primary-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+    html {
+        font-size: 13px;
+    }
+
+    .game-title {
+        font-size: 1.5rem;
+    }
+
+    .game-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero-card {
+        padding: var(--spacing-md);
+    }
+
+    .intro-text {
+        font-size: 0.9rem;
     }
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games4Stats - Interactive Statistics Learning</title>
     <meta name="description"
-        content="Learn statistics concepts like PCA, T-tests, and more through interactive games. Research methods made fun.">
+        content="Learn statistics concepts like T-tests, ANOVA, Regression, and more through interactive games. Research methods made fun.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -25,123 +25,181 @@
 
     <main class="games-grid">
 
-        <!-- CARD 1: PCA (Active) -->
+        <!-- CATEGORY 1: T-TEST -->
         <article class="game-card">
-            <div class="status-badge status-live">Playable Now</div>
-            <div class="card-icon pca-icon">🎯</div>
-            <h2 class="card-title">Variance Voyager</h2>
-            <div class="research-tag" style="background: rgba(236, 72, 153, 0.2); color: #f472b6;">Principal Components
-                Analysis</div>
-
-            <p class="card-desc">Find hidden structures in data by identifying axes of maximum variance. Learn about
-                orthogonality, dimensionality reduction, and pattern recognition.</p>
-
-            <div class="why-useful" style="border-color: #ec4899;">
-                <strong>Why it's useful:</strong> Essential for simplifying complex datasets with many variables (like
-                gene expression or survey data) into manageable patterns without losing key information.
-            </div>
-
-            <a href="games/variance-voyager/index.html" class="card-btn btn-secondary">
-                <span>Play Now</span>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
-        </article>
-
-        <!-- CARD 2: T-Test (Coming Soon) -->
-        <article class="game-card">
-            <div class="status-badge status-live">Playable Now</div>
+            <div class="status-badge status-live">2 Games Available</div>
             <div class="card-icon ttest-icon">📊</div>
-            <h2 class="card-title">Group Guesser</h2>
-            <div class="research-tag" style="background: rgba(99, 102, 241, 0.2); color: #818cf8;">Independent Samples
-                T-Test</div>
+            <h2 class="card-title">1. T-Test</h2>
+            <div class="research-tag" style="background: rgba(99, 102, 241, 0.2); color: #818cf8;">Comparing Means</div>
 
-            <p class="card-desc">Compare two independent groups to see if they are truly different. Visualize mean
-                differences and standard error to separate signal from noise.</p>
+            <p class="card-desc">Compare group means to determine if differences are statistically significant. Includes both independent and paired samples designs.</p>
 
             <div class="why-useful" style="border-color: #6366f1;">
-                <strong>Why it's useful:</strong> The gold standard for comparing a treatment group vs. a control group
-                (e.g., "Does this drug work better than a placebo?").
+                <strong>When to use:</strong> Comparing means between two groups (e.g., treatment vs. control) or paired measurements (before/after).
             </div>
 
-            <a href="games/group-guesser/index.html" class="card-btn btn-primary">
-                <span>Play Now</span>
+            <div class="sub-games">
+                <a href="games/group-guesser/index.html" class="sub-game-link">
+                    <span class="sub-game-name">Group Guesser</span>
+                    <span class="sub-game-type">Independent Samples</span>
+                </a>
+                <a href="games/mirror-match/index.html" class="sub-game-link">
+                    <span class="sub-game-name">Mirror Match</span>
+                    <span class="sub-game-type">Paired Samples</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- CATEGORY 2: CHI-SQUARE TEST -->
+        <article class="game-card">
+            <div class="status-badge status-live">Playable Now</div>
+            <div class="card-icon chisq-icon">🔲</div>
+            <h2 class="card-title">2. Chi-Square Test</h2>
+            <div class="research-tag" style="background: rgba(236, 72, 153, 0.2); color: #f472b6;">Categorical Data</div>
+
+            <p class="card-desc">Test relationships between categorical variables. Determine if observed frequencies differ from expected frequencies in contingency tables.</p>
+
+            <div class="why-useful" style="border-color: #ec4899;">
+                <strong>When to use:</strong> Analyzing associations between categorical variables (e.g., "Is there a relationship between gender and voting preference?").
+            </div>
+
+            <a href="games/chi-square-challenge/index.html" class="card-btn btn-secondary">
+                <span>Play Chi-Square Challenge</span>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
             </a>
         </article>
 
-        <!-- CARD 3: Paired T-Test (Coming Soon) -->
+        <!-- CATEGORY 3: ANOVA -->
         <article class="game-card">
             <div class="status-badge status-live">Playable Now</div>
-            <div class="card-icon paired-icon">🔄</div>
-            <h2 class="card-title">Mirror Match</h2>
-            <div class="research-tag" style="background: rgba(20, 184, 166, 0.2); color: #2dd4bf;">Paired Samples T-Test
-            </div>
+            <div class="card-icon anova-icon">📈</div>
+            <h2 class="card-title">3. ANOVA</h2>
+            <div class="research-tag" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">Analysis of Variance</div>
 
-            <p class="card-desc">Analyze changes within the same subjects over time. Link data points to see how
-                meaningful the individual changes really are.</p>
-
-            <div class="why-useful" style="border-color: #14b8a6;">
-                <strong>Why it's useful:</strong> Critical for "Before & After" studies. It controls for individual
-                variability, making it much more powerful for measuring specific interventions.
-            </div>
-
-            <a href="games/mirror-match/index.html" class="card-btn btn-accent">
-                <span>Play Now</span>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
-        </article>
-
-
-
-        <!-- CARD 4: ANOVA (Active) -->
-        <article class="game-card">
-            <div class="status-badge status-live">Playable Now</div>
-            <div class="card-icon anova-icon">📊</div>
-            <h2 class="card-title">Cluster Commander</h2>
-            <div class="research-tag" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">One-Way ANOVA</div>
-
-            <p class="card-desc">Command multiple groups of data. Learn how the F-Ratio compares "Between-Group"
-                variance to
-                "Within-Group" noise.</p>
+            <p class="card-desc">Compare means across three or more groups. Learn how the F-ratio separates between-group differences from within-group variability.</p>
 
             <div class="why-useful" style="border-color: #f59e0b;">
-                <strong>Why it's useful:</strong> Used when comparing MORE than two groups (e.g., "Drug A vs Drug B vs
-                Placebo"). T-tests can't handle that!
+                <strong>When to use:</strong> Comparing means across multiple groups (e.g., "Drug A vs Drug B vs Placebo").
             </div>
 
             <a href="games/cluster-commander/index.html" class="card-btn btn-amber">
-                <span>Play Now</span>
+                <span>Play Cluster Commander</span>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
             </a>
         </article>
 
-        <!-- CARD 5: 2-Way ANOVA (Active) -->
+        <!-- CATEGORY 4: ANCOVA -->
+        <article class="game-card">
+            <div class="status-badge status-soon">Coming Soon</div>
+            <div class="card-icon ancova-icon">🎛️</div>
+            <h2 class="card-title">4. ANCOVA</h2>
+            <div class="research-tag" style="background: rgba(20, 184, 166, 0.2); color: #2dd4bf;">Analysis of Covariance</div>
+
+            <p class="card-desc">Extend ANOVA by including continuous covariates. Control for confounding variables while comparing group means.</p>
+
+            <div class="why-useful" style="border-color: #14b8a6;">
+                <strong>When to use:</strong> When you need to control for continuous variables (e.g., pre-test scores) while comparing groups.
+            </div>
+
+            <button class="card-btn btn-disabled" disabled>
+                <span>In Development</span>
+            </button>
+        </article>
+
+        <!-- CATEGORY 5: 2-WAY ANOVA -->
         <article class="game-card">
             <div class="status-badge status-live">Playable Now</div>
             <div class="card-icon inter-icon">🌪️</div>
-            <h2 class="card-title">Factorial Flux</h2>
-            <div class="research-tag" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">Two-Way ANOVA</div>
+            <h2 class="card-title">5. 2-Way ANOVA</h2>
+            <div class="research-tag" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">Factorial Design</div>
 
-            <p class="card-desc">Manipulate two variables at once. Discover the difference between Main Effects and
-                complex
-                Interactions.</p>
+            <p class="card-desc">Analyze the effects of two independent variables simultaneously. Discover main effects and interaction effects between factors.</p>
 
             <div class="why-useful" style="border-color: #a855f7;">
-                <strong>Why it's useful:</strong> Real life isn't simple. This tests how multiple factors (e.g., "Diet"
-                AND
-                "Exercise") combine to affect an outcome.
+                <strong>When to use:</strong> Testing multiple factors and their interactions (e.g., "Diet AND Exercise effects on weight loss").
             </div>
 
             <a href="games/factorial-flux/index.html" class="card-btn btn-purple">
-                <span>Play Now</span>
+                <span>Play Factorial Flux</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </article>
+
+        <!-- CATEGORY 6: RM ANOVA -->
+        <article class="game-card">
+            <div class="status-badge status-soon">Coming Soon</div>
+            <div class="card-icon rmanova-icon">🔄</div>
+            <h2 class="card-title">6. RM ANOVA</h2>
+            <div class="research-tag" style="background: rgba(239, 68, 68, 0.2); color: #f87171;">Repeated Measures</div>
+
+            <p class="card-desc">Analyze data collected from the same subjects across multiple time points or conditions. Account for within-subject correlations.</p>
+
+            <div class="why-useful" style="border-color: #ef4444;">
+                <strong>When to use:</strong> Longitudinal studies or repeated measurements on the same participants (e.g., "Test scores at Week 1, 4, and 8").
+            </div>
+
+            <button class="card-btn btn-disabled" disabled>
+                <span>In Development</span>
+            </button>
+        </article>
+
+        <!-- CATEGORY 7: LINEAR REGRESSION -->
+        <article class="game-card">
+            <div class="status-badge status-soon">Coming Soon</div>
+            <div class="card-icon linreg-icon">📉</div>
+            <h2 class="card-title">7. Linear Regression</h2>
+            <div class="research-tag" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">Prediction & Relationship</div>
+
+            <p class="card-desc">Model the relationship between a continuous outcome and one or more predictors. Learn about slopes, intercepts, R-squared, and residuals.</p>
+
+            <div class="why-useful" style="border-color: #3b82f6;">
+                <strong>When to use:</strong> Predicting continuous outcomes or quantifying relationships (e.g., "How does study time predict exam scores?").
+            </div>
+
+            <button class="card-btn btn-disabled" disabled>
+                <span>In Development</span>
+            </button>
+        </article>
+
+        <!-- CATEGORY 8: LOGISTIC REGRESSION -->
+        <article class="game-card">
+            <div class="status-badge status-soon">Coming Soon</div>
+            <div class="card-icon logreg-icon">🎯</div>
+            <h2 class="card-title">8. Logistic Regression</h2>
+            <div class="research-tag" style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">Binary Classification</div>
+
+            <p class="card-desc">Predict binary outcomes using logistic functions. Learn about odds ratios, log-odds, and the sigmoid curve.</p>
+
+            <div class="why-useful" style="border-color: #22c55e;">
+                <strong>When to use:</strong> Predicting binary outcomes (e.g., "Will a customer churn?" or "Does a patient have a disease?").
+            </div>
+
+            <button class="card-btn btn-disabled" disabled>
+                <span>In Development</span>
+            </button>
+        </article>
+
+        <!-- CATEGORY 9: MULTIVARIATE TECHNIQUES -->
+        <article class="game-card">
+            <div class="status-badge status-live">Playable Now</div>
+            <div class="card-icon multi-icon">🧬</div>
+            <h2 class="card-title">Multivariate Techniques</h2>
+            <div class="research-tag" style="background: rgba(236, 72, 153, 0.2); color: #f472b6;">Dimensionality Reduction</div>
+
+            <p class="card-desc">Explore techniques for analyzing multiple variables simultaneously. Learn to find patterns and reduce complexity in high-dimensional data.</p>
+
+            <div class="why-useful" style="border-color: #ec4899;">
+                <strong>When to use:</strong> Working with many correlated variables (e.g., gene expression, survey data with many items).
+            </div>
+
+            <a href="games/variance-voyager/index.html" class="card-btn btn-secondary">
+                <span>Play Variance Voyager (PCA)</span>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

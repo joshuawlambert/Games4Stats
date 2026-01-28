@@ -118,6 +118,36 @@ body {
     background: rgba(168, 85, 247, 0.1);
 }
 
+.chisq-icon {
+    color: #ec4899;
+    background: rgba(236, 72, 153, 0.1);
+}
+
+.ancova-icon {
+    color: #14b8a6;
+    background: rgba(20, 184, 166, 0.1);
+}
+
+.rmanova-icon {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.linreg-icon {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.logreg-icon {
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.multi-icon {
+    color: #ec4899;
+    background: rgba(236, 72, 153, 0.1);
+}
+
 .card-title {
     font-size: 1.75rem;
     margin-bottom: 1rem;
@@ -149,6 +179,46 @@ body {
     font-size: 0.9rem;
     color: #cbd5e1;
     border-left: 3px solid;
+}
+
+.sub-games {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sub-game-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.sub-game-link:hover {
+    transform: translateX(5px);
+    filter: brightness(1.1);
+}
+
+.sub-game-link:last-child {
+    background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+}
+
+.sub-game-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.sub-game-type {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
 }
 
 .card-btn {
@@ -233,9 +303,84 @@ footer {
 @media (max-width: 768px) {
     .games-grid {
         padding: 1rem;
+        grid-template-columns: 1fr;
     }
 
     .logo-display {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .game-card {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .games-header {
+        padding: 2rem 1rem;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .sub-games {
+        gap: 0.5rem;
+    }
+
+    .sub-game-link {
+        padding: 0.75rem 1rem;
+    }
+
+    .sub-game-name {
+        font-size: 0.9rem;
+    }
+
+    .sub-game-type {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-grid {
+        padding: 0.75rem;
+        gap: 1rem;
+    }
+
+    .logo-display {
+        font-size: 1.75rem;
+    }
+
+    .game-card {
+        padding: 1.25rem;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.35rem;
+    }
+
+    .card-desc {
+        font-size: 0.9rem;
+    }
+
+    .why-useful {
+        font-size: 0.85rem;
+    }
+
+    .decision-buttons {
+        flex-direction: column;
     }
 }
